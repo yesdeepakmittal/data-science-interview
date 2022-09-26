@@ -48,3 +48,16 @@ Output:
 139928807003312
 [1, 2, 3, 4, 5]
 ```
+
+###### Q: What is Lazy Evaluation? Explain with an example.
+*According to [Stack Overflow](https://stackoverflow.com/a/20535428), Lazy Evaluation is a technique in which the Object is evaluated when it is Called not when it is Created. In Python, for example, `range(100000)` will give one iterator at a time when it is called. It will not create one lakh objects of class int in the memory.* 
+
+*Lazy Evaluation is a great feature in Python and used across different data structures. If you will iterate over a list, it will keep the current index of the iterator until it will not reach the end of the list & throw StopIteration Exception. If you will add more elements to that list before reaching the end of the list, Lazy Evaluation will help us in iterating through those elements as well.*
+
+```python
+
+
+```
+
+### Other Resources
+- [Generator](https://stackoverflow.com/a/20535379)
