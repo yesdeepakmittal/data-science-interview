@@ -54,9 +54,27 @@ Output:
 
 *Lazy Evaluation is a great feature in Python and used across different data structures. If you will iterate over a list, it will keep the current index of the iterator until it will not reach the end of the list & throw StopIteration Exception. If you will add more elements to that list before reaching the end of the list, Lazy Evaluation will help us in iterating through those elements as well.*
 
+###### Q: If every data point is repeated thrice in a dataset, what will happen to the coefficient of the Linear Regressor? 
+
+*It will not change.*
+
 ```python
+from sklearn.datasets._samples_generator import make_regression
+from sklearn.linear_model import LinearRegression
+import numpy as np
 
+x,y = make_regression(n_samples=1000,n_features = 2, noise = 10, random_state = 2020)
+lr = LinearRegression()
+lr.fit(x,y)
+print('Coeff. before repeating datapoints:',lr.coef_)
 
+lr2 = LinearRegression()
+lr2.fit(np.vstack((x,x,x)),np.vstack((y,y,y)).reshape((-1,1)))
+print('Coeff. after repeating datapoints:',lr2.coef_)
+
+Output:
+Coeff. before repeating datapoints: [ 4.47154535 53.73415382]
+Coeff. after repeating datapoints: [[ 4.47154535 53.73415382]]
 ```
 
 ### Other Resources
